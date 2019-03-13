@@ -2,10 +2,17 @@
 
 Website for IEEE Computer Society's premier hackathon.
 
-## Quick Instructions
-(Will update it to a more cleaner one soon)
+## Instructions
+
+### Getting started
+
+1. Run `npm install` to install the necessary npm packages
+2. Run `npm start` to get the development server started
+3. Go to `localhost:8000`
+
 
 ### Git
+
 **Development Branch**: _develop_
 
 **Production Branch**: _master_
