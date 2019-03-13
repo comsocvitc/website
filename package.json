@@ -1,0 +1,23 @@
+{
+  "name": "comsocvitc",
+  "version": "0.0.1",
+  "description": "Website for VITC Com Soc ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "hrs . -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comsocvitc/comsocvitc.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comsocvitc/comsocvitc.github.io/issues"
+  },
+  "homepage": "https://github.com/comsocvitc/comsocvitc.github.io#readme",
+  "devDependencies": {
+    "simple-hot-reload-server": "^1.2.0"
+  }
+}
