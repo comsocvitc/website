@@ -20,6 +20,11 @@ body {
   color: #fff;
 }
 
+html {
+  overflow-x:hidden;
+  max-width: 100%;
+}
+
 a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
@@ -345,6 +350,7 @@ h5,
   margin-bottom: 15px;
   line-height: 1.5;
 }
+
 .ul-check li:before {
   left: 0;
   font-size: 20px;
@@ -856,8 +862,17 @@ h5,
   min-height: 400px;
   height: calc(50vh - 95px);
 }
+
+.site-hero.hackhub,
+.site-hero.hackhub .row {
+  min-height: 400px;
+  height: calc(75vh - 95px);
+}
+
+
 .site-hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
   background: -webkit-gradient(
     linear,
     left top,
@@ -873,10 +888,11 @@ h5,
 }
 @media (min-width: 992px) {
   .site-hero h1 {
-    font-size: 6rem;
+    font-size: 7rem;
   }
 }
 .site-hero .caption {
+  text-align: center;
   color: #fff;
 }
 @media (min-width: 768px) {
