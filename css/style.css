@@ -140,9 +140,32 @@ h5,
   .site-section {
     padding: 10em 0;
   }
+  .touch {
+  font-size:3rem;
+  } 
+  .getintouch {
+    margin-top:-150px;
+  }
+
+  .site-section.contactform {
+    margin-top:-450px;
+  }
+
 }
 .site-section.site-section-sm {
   padding: 4em 0;
+}
+
+.getintouch {
+    margin-top:-100px;
+  }
+
+.touch {
+  font-size:2rem !important;
+}
+  
+.site-section.contactform {
+    margin-top:-440px;
 }
 
 .site-section-heading h2 {
@@ -870,9 +893,10 @@ h5,
 }
 
 
+
 .site-hero h1 {
   font-size: 2.5rem;
-  text-align: center;
+  
   background: -webkit-gradient(
     linear,
     left top,
@@ -892,7 +916,7 @@ h5,
   }
 }
 .site-hero .caption {
-  text-align: center;
+  
   color: #fff;
 }
 @media (min-width: 768px) {
