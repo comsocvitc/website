@@ -92,8 +92,9 @@ jQuery(document).ready(function($) {
     siteMenuClone()
 
     var siteCountDown = function() {
-        $('#countdown').countdown('2019/03/29', function(event) {
-            $(this).html(event.strftime('' + '%dd %Hh %Mm %Ss left'))
+        const endDate = new Date('2019-03-30T15:30:00')
+        $('#countdown').countdown(endDate, function(event) {
+            $(this).html(event.strftime('' + '%Hh %Mm %Ss to end'))
         })
     }
     siteCountDown()
