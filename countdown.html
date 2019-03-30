@@ -74,10 +74,11 @@
                     src="images/hackhub_log.png"
                     width="500px"
                     height="420px"
-                />
+                    />
+                </div>
             </div>
-        </div>
-        <script>
+            <script>
+            let interval = setInterval(updateTimer, 1000)
             function updateTimer() {
                 const delta = new Date('2019-03-30T17:27:00') - new Date()
                 if (delta < 0) {
@@ -94,7 +95,6 @@
 
             updateTimer()
 
-            let interval = setInterval(updateTimer, 1000)
         </script>
         <script src="js/particles.min.js"></script>
         <script src="js/particle-config.js"></script>
