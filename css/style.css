@@ -1148,10 +1148,13 @@ h5,
     padding-bottom: 5em;
 }
 
+
+.custom-row {
+    align-items: center;
+}
+
 .custom-img {
-    width: 255px;
-    height: 150px;
-    margin: 20px;
+    margin: 15px 10px;
 }
 
 .footer-img {
