@@ -4,11 +4,18 @@ AOS.init({
     once: true,
 })
 
-jQuery(document).ready(function($) {
+document.addEventListener('readystatechange', function () {
+    if (document.readyState === 'complete') {
+        document.querySelector('.loader-wrap').remove();
+        document.querySelector('html').style.overflowY = 'auto';
+    }
+})
+
+jQuery(document).ready(function ($) {
     'use strict'
 
-    var siteMenuClone = function() {
-        $('.js-clone-nav').each(function() {
+    var siteMenuClone = function () {
+        $('.js-clone-nav').each(function () {
             var $this = $(this)
             $this
                 .clone()
@@ -16,9 +23,9 @@ jQuery(document).ready(function($) {
                 .appendTo('.site-mobile-menu-body')
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
             var counter = 0
-            $('.site-mobile-menu .has-children').each(function() {
+            $('.site-mobile-menu .has-children').each(function () {
                 var $this = $(this)
 
                 $this.prepend('<span class="arrow-collapse collapsed">')
@@ -37,7 +44,7 @@ jQuery(document).ready(function($) {
             })
         }, 1000)
 
-        $('body').on('click', '.arrow-collapse', function(e) {
+        $('body').on('click', '.arrow-collapse', function (e) {
             var $this = $(this)
             if (
                 $this
@@ -52,7 +59,7 @@ jQuery(document).ready(function($) {
             e.preventDefault()
         })
 
-        $(window).resize(function() {
+        $(window).resize(function () {
             var $this = $(this),
                 w = $this.width()
 
@@ -63,7 +70,7 @@ jQuery(document).ready(function($) {
             }
         })
 
-        $('body').on('click', '.js-menu-toggle', function(e) {
+        $('body').on('click', '.js-menu-toggle', function (e) {
             var $this = $(this)
             e.preventDefault()
 
@@ -77,7 +84,7 @@ jQuery(document).ready(function($) {
         })
 
         // click outisde offcanvas
-        $(document).mouseup(function(e) {
+        $(document).mouseup(function (e) {
             var container = $('.site-mobile-menu')
             if (
                 !container.is(e.target) &&
@@ -91,9 +98,9 @@ jQuery(document).ready(function($) {
     }
     siteMenuClone()
 
-    var siteCountDown = function() {
+    var siteCountDown = function () {
         const endDate = new Date('2019-03-30T15:30:00')
-        $('#countdown').countdown(endDate, function(event) {
+        $('#countdown').countdown(endDate, function (event) {
             $(this).html(event.strftime('' + '%Hh %Mm %Ss to end'))
         })
     }
