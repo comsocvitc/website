@@ -4,13 +4,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const SRC = "src";
+const isProd = process.env.NODE_ENV === "production";
 
 /* Dynamically add pug files */
 
 const pugs = [];
-
 const files = fs.readdirSync(path.resolve(__dirname, SRC));
 
 const decideFileStructure = filename =>
@@ -30,13 +31,13 @@ files.forEach(file => {
 });
 
 module.exports = {
-  mode: "development",
+  mode: isProd ? "production" : "development",
 
   entry: path.resolve(__dirname, SRC, "js", "index.js"),
 
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.[hash].js",
+    filename: isProd ? "bundle.[hash].js" : "bundle.js",
   },
 
   module: {
@@ -44,18 +45,19 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"],
-            },
-          },
-        ],
+        use: "babel-loader",
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: !isProd,
+            },
+          },
+          "css-loader",
+        ],
       },
       {
         test: /\.pug$/,
@@ -66,14 +68,17 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyPlugin([{ from: "assets/", to: "static" }], { logLevel: "silent" }),
+    new MiniCssExtractPlugin({
+      filename: "static/css/[name].css",
+    }),
     ...pugs,
     new HtmlWebpackPugPlugin(),
-    new CopyPlugin([{ from: "assets/", to: "static" }], { logLevel: "silent" }),
   ],
 
   devServer: {
     port: 3000,
     compress: true,
-    hot: true,
+    hot: !isProd,
   },
 };

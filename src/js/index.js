@@ -3,7 +3,7 @@
 // import "../contact.pug";
 
 /* Javascript */
-import main from "./main";
+import "./main";
 
 /* CSS */
 import "../css/style.css";
