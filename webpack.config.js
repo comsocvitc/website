@@ -3,6 +3,7 @@ const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const SRC = "src";
 
@@ -31,15 +32,31 @@ files.forEach(file => {
 module.exports = {
   mode: "development",
 
-  entry: path.resolve(__dirname, SRC, "main.js"),
+  entry: path.resolve(__dirname, SRC, "js", "index.js"),
 
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "bundle.[hash].js",
   },
 
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
       {
         test: /\.pug$/,
         use: "pug-loader",
@@ -47,7 +64,12 @@ module.exports = {
     ],
   },
 
-  plugins: [new CleanWebpackPlugin(), ...pugs, new HtmlWebpackPugPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    ...pugs,
+    new HtmlWebpackPugPlugin(),
+    new CopyPlugin([{ from: "assets/", to: "static" }], { logLevel: "silent" }),
+  ],
 
   devServer: {
     port: 3000,
