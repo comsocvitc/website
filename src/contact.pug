@@ -1,0 +1,67 @@
+extends partials/base.pug
+
+block content
+  .site-wrap
+    #particles-js
+    .site-section.site-hero.inner
+      .container.getintouch
+        .row.align-items-center
+          .col-md-10
+            h1.d-block.mb-4.touch(data-aos='fade-up' data-aos-delay='100') Get in Touch
+    .site-section.contactform
+      .container
+        .row
+          .col-md-5(data-aos='fade-up')
+            form(action='#')
+              .row.form-group
+                .col-md-6.mb-3.mb-md-0
+                  label(for='fname') First Name
+                  input#fname.form-control(type='text')
+                .col-md-6
+                  label(for='lname') Last Name
+                  input#lname.form-control(type='text')
+              .row.form-group
+                .col-md-12
+                  label(for='email') Email
+                  input#email.form-control(type='email')
+              .row.form-group
+                .col-md-12
+                  label(for='subject') Subject
+                  input#subject.form-control(type='subject')
+              .row.form-group
+                .col-md-12
+                  label(for='message') Message
+                  textarea#message.form-control(name='message' cols='30' rows='7')
+              .row.form-group
+                .col-md-12
+                  input.btn.btn-primary.py-2.px-4.text-white.btn-dark(type='submit' value='Send Message')
+          .col-md-7.ml-auto(data-aos='fade-up' data-aos-delay='100')
+            .p-4.mb-3
+              p.mb-0.font-weight-bold.text-secondary.text-uppercase.mb-3 Address
+              p.mb-4 VIT Chennai, Vandalur-Kelambakam road, Chennai
+              br
+              p.mb-0.font-weight-bold.text-secondary.text-uppercase.mb-3 Phone
+              p.mb-4
+                | Krishnakumar M 
+                span.text-secondary   President 
+                a(href='#') +91 9444287919
+              p.mb-4
+                | Nikhlesh Prabhakar 
+                span.text-secondary   Vice President 
+                a(href='#') +91 9176757817
+              p.mb-4
+                | Adithya Narayan 
+                span.text-secondary   General Secretary 
+                a(href='#') +91 9003021347
+              p.mb-4
+                | Aylmer Britto 
+                span.text-secondary   Project Head 
+                a(href='#') +91 9843497974
+              p.mb-4
+                | Prof. Abraham Ponraj 
+                span.text-secondary   Faculty Coordinator 
+                a(href='#') +91 9840986883
+              br
+              p.mb-0.font-weight-bold.text-secondary.text-uppercase.mb-3 Email Address
+              p.mb-0
+                a(href='#') vitc.comsoc@gmail.com

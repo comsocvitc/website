@@ -1,0 +1,103 @@
+mixin profile-card()
+  .col-md-4.col-sm-6.col-lg-4.mb-5.mb-lg-5(
+    data-aos='fade-up'
+    data-aos-delay=attributes.delay?attributes.delay:"600"
+  )
+    .testimony.text-center
+      figure
+        img.img-fluid(src="static/images/profiles/"+attributes.image alt='Image')
+      blockquote
+        p.author.mb-0!= attributes.name
+        p.text-muted.mb-4!= attributes.position
+        p!= attributes.quote
+
++profile-card()(
+  image="krishna.jpg"
+  name="Krishna Kumar M"
+  position="President"
+  quote="Veni, Vidi, Vici"
+  delay="50"
+)
++profile-card(
+  image='adithya.jpg'
+  name="Adithya Narayan"
+  position="General Secretary"
+  quote="The guy who calls the conference room his second home"
+  delay="100"
+)
++profile-card(
+  image='nikhilesh.jpeg'
+  name="Nikhilesh Prabhakar"
+  position="Vice President"
+  quote="Curiosity and passion are the fuel for learning"
+  delay="200"
+)
++profile-card(
+  image='britto.jpeg'
+  name="Aylmer Britto"
+  position="Projects Head"
+  quote="Codes and Chords. Period. :}"
+  delay="300"
+)
++profile-card(
+  image='sriram.jpeg'
+  name="Sriram Ravichandran"
+  position="Technical Head"
+  quote="{ I code to conquer }"
+  delay="400"
+)
++profile-card(
+  image='vikram.jpg'
+  name="Thrivikram"
+  position="Joint General Secretary"
+  quote="You have to dream before your dreams can come true."
+  delay="500"
+)
++profile-card(
+  image='rutu.jpg'
+  name="Rutu Patel"
+  position="Creative Head"
+  quote="I dream. I hustle. I achieve."
+)
++profile-card(
+  image='abhishek.jpg'
+  name="Abhishek Satapathy"
+  position="Creative Co-Head"
+  quote="Someone once brilliantly said: 'Be you, because others are already taken';"
+)
++profile-card(
+  image='kaaviya.jpg'
+  name="Kaaviya Ramkumar"
+  position="Creative Co-Head"
+  quote="The real problem is not whether machines think but whether men do"
+)
++profile-card(
+  image='srinidhi.jpg'
+  name="Srinidhi"
+  position="Treasurer"
+  quote="Doing what I love, loving what I do"
+)
++profile-card(
+  image='santosh.jpg'
+  name="Santhosh"
+  position="Co Treasurer"
+  quote="Le faiseur de roi"
+)
++profile-card(
+  image='vishhvak.jpg'
+  name="Vishhvak"
+  position="Public Relations"
+  quote="Git-ting my way through life"
+)
++profile-card(
+  image='atheesh.jpg'
+  name="Atheesh Krishnan"
+  position="Operations Head"
+  quote="Vincit Qui Se Vincit"
+)
++profile-card(
+  image='soorya.jpg'
+  name="Sooryanarayan Ramkumar"
+  position="Operations Co-Head"
+  quote="Onwards and Upwards"
+)
