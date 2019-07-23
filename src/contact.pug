@@ -12,22 +12,22 @@ block content
       .container
         .row
           .col-md-5(data-aos='fade-up')
-            form(action='#')
+            form(action='#' method="POST" data-netlify="true")
               .row.form-group
                 .col-md-6.mb-3.mb-md-0
-                  label(for='fname') First Name
-                  input#fname.form-control(type='text')
+                  label(for='first_name') First Name
+                  input#fname.form-control(name='first_name' type='text')
                 .col-md-6
-                  label(for='lname') Last Name
-                  input#lname.form-control(type='text')
+                  label(for='last_name') Last Name
+                  input#lname.form-control(name='last_name' type='text')
               .row.form-group
                 .col-md-12
                   label(for='email') Email
-                  input#email.form-control(type='email')
+                  input#email.form-control(name='email' type='email')
               .row.form-group
                 .col-md-12
                   label(for='subject') Subject
-                  input#subject.form-control(type='subject')
+                  input#subject.form-control(name='subject')
               .row.form-group
                 .col-md-12
                   label(for='message') Message
