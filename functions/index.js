@@ -1,36 +1,49 @@
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
+const cors = require("cors")({ origin: true });
+
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+
+const mailTransport = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword,
+  },
+});
 
 exports.sendEmail = functions.https.onRequest(async (request, response) => {
-  if (request.method !== 'POST') {
-    response.send("Only valid POST alowed")
+
+  return cors(request, response, async () => {
+  if (request.method !== "POST") {
+    response.send("Only valid POST alowed");
   }
 
-  const gmailEmail = functions.config().gmail.email;
-  const gmailPassword = functions.config().gmail.password;
+    const { fname, lname, email, subject, message } = request.body;
 
-  const mailTransport = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: gmailEmail,
-      pass: gmailPassword,
-    },
-  });
+    const text = `
+    New message submitted by User.
+    Name: ${fname} ${lname || " "}
+    Subject: ${subject}
+    Email: ${email}
+    Message: ${message}
+  `;
 
-  const { subject, text } = request.body;
+    const mailOptions = {
+      from: `Contact Form <noreply@firebase.com>`,
+      to: "vitc.comsoc@gmail.com",
+      subject,
+      text,
+    };
 
-  const mailOptions = {
-    from: `Contact Form <noreply@firebase.com>`,
-    to: 'sriru1998@gmail.com',
-    subject,
-    text,
-  };
-  
   try {
     await (mailTransport.sendMail(mailOptions));
-  } catch(e) {
-    response.status(500).send(`Error: ${e}`);
+    response.send("Success");
+  } catch (e) {
+    response.send(`Error: ${e}`);
   }
-  response.status(200).send("Success");
+
   return null;
+  })
 });
