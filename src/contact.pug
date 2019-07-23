@@ -12,14 +12,18 @@ block content
       .container
         .row
           .col-md-5(data-aos='fade-up')
+            .success.message(
+              style="margin-top: 27px;"
+            ) Your message has been submitted.
+            .failure.message An error occured. Please try again.
             form#contact-form(method="POST")
               .row.form-group
                 .col-md-6.mb-3.mb-md-0
-                  label(for='first_name') First Name
-                  input#fname.form-control(name='first_name' type='text' required)
+                  label(for='fname') First Name
+                  input#fname.form-control(name='fname' type='text' required)
                 .col-md-6
-                  label(for='last_name') Last Name
-                  input#lname.form-control(name='last_name' type='text')
+                  label(for='lname') Last Name
+                  input#lname.form-control(name='lname' type='text')
               .row.form-group
                 .col-md-12
                   label(for='email') Email

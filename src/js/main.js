@@ -96,22 +96,34 @@ jQuery(document).ready(function($) {
     });
 
     const form = document.getElementById('contact-form');
+    // we aree in contact page
     if (form) {
-      $('#contact-form #submit').click(e => {
+      $('.message').hide();
+      $('#contact-form #submit').click(function(e){
         if (!form.checkValidity()) {
           console.warn('Form not valid');
           return;
         }
         const data = contact.getFormData(form)
         console.log(data);
-        contact.submitData(data);
+        $(this).val('Sending');
+        $(this).attr('disabled', true)
+        contact.submitData(data).then(res => {
+          $(form).fadeOut();
+          $('.success.message').fadeIn();
+        }).catch(err => {
+          $(".failure.message").fadeIn();
+          $(this).attr("disabled", false);
+          $(this).val("Send Again");
+        })
+        e.preventDefault();
       })
     }
   };
   siteMenuClone();
 
-  const images = document.querySelectorAll("img");
-  const observer = lozad(images);
-  observer.observe();
+  // const images = document.querySelectorAll("img");
+  // const observer = lozad(images);
+  // observer.observe();
 });
 

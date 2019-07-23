@@ -1,4 +1,4 @@
-const URL = "http://us-central1-comsoc-backend.cloudfunctions.net/sendEmail";
+const URL = "http://us-central1-comsoc-backend.cloudfunctions.net/sendEmail/";
 export function getFormData(form) {
   const data = {};
   const els = form.elements;
@@ -14,7 +14,9 @@ export function getFormData(form) {
 
 export function submitData(data) {
   return fetch(URL, {
-    method: 'post',
-    body: JSON.stringify(data)
+    method: "post",
+    // mode: "no-cors",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
   });
 }
