@@ -1,4 +1,4 @@
-const URL = "http://us-central1-comsoc-backend.cloudfunctions.net/sendEmail/";
+const URL = "https://us-central1-comsoc-backend.cloudfunctions.net/sendEmail/";
 export function getFormData(form) {
   const data = {};
   const els = form.elements;
