@@ -1,17 +1,6 @@
-// Global site tag (gtag.js) - Google Analytics
-script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-142190584-1')
-
 script.
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-  dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", "UA-142190584-1");
-
-// Hotjar Tracking Code for https://ieeecsvitc.com/
-script.
-  (function(h, o, t, j, a, r) {
+  // Hotjar Tracking Code for https://ieeecsvitc.com/
+  function hotjar(h, o, t, j, a, r) {
   h.hj =
   h.hj ||
   function() {
@@ -23,4 +12,28 @@ script.
   r.async = 1;
   r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
   a.appendChild(r);
-  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+  }
+  
+  // Google Analytics
+  function google() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-142190584-1';
+    document.body.append(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+    dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-142190584-1");
+  }
+
+  (function(){
+    if (location.host.split(':')[0] === 'localhost'){
+      console.warn('Not loading hotjar and GA in local')
+      return;
+    }
+    google();
+    hotjar(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+  })();

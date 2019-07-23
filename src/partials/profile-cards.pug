@@ -5,7 +5,7 @@ mixin profile-card()
   )
     .testimony.text-center
       figure
-        img.img-fluid(src="static/images/profiles/"+attributes.image alt='Image')
+        img.img-fluid(src="/static/images/profiles/"+attributes.image alt='Image')
       blockquote
         p.author.mb-0!= attributes.name
         p.text-muted.mb-4!= attributes.position
