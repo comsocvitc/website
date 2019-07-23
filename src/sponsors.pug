@@ -1,0 +1,25 @@
+extends partials/base.pug
+
+block content
+  .site-wrap
+    #particles-js
+    .site-section.reduced-padding
+    .container
+      .container
+        .row.mb-5
+          .col-lg-4
+            .site-section-heading(data-aos='fade-up')
+              h2 Sponsors
+        .row
+          .col-md-6.col-lg-4.mb-5.mb-lg-0(data-aos='fade' data-aos-delay='200')
+            img.img-fluid(src='static/images/EuroEximBank.jpg' alt='Image')
+    .site-section.reduced-padding
+      .container
+        br
+        br
+        .row.mb-5
+          .col-lg-4
+            .site-section-heading(data-aos='fade-up')
+              h2 Previous Sponsors
+        .row.custom-row
+            include partials/previous-sponsor-logos.pug
