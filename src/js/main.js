@@ -1,3 +1,5 @@
+import * as contact from './contact'
+
 AOS.init({
   duration: 800,
   easing: "slide",
@@ -92,6 +94,19 @@ jQuery(document).ready(function($) {
         }
       }
     });
+
+    const form = document.getElementById('contact-form');
+    if (form) {
+      $('#contact-form #submit').click(e => {
+        if (!form.checkValidity()) {
+          console.warn('Form not valid');
+          return;
+        }
+        const data = contact.getFormData(form)
+        console.log(data);
+        contact.submitData(data);
+      })
+    }
   };
   siteMenuClone();
 
@@ -99,3 +114,4 @@ jQuery(document).ready(function($) {
   const observer = lozad(images);
   observer.observe();
 });
+

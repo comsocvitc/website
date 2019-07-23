@@ -12,29 +12,34 @@ block content
       .container
         .row
           .col-md-5(data-aos='fade-up')
-            form(action='#' method="POST" data-netlify="true")
+            form#contact-form(method="POST")
               .row.form-group
                 .col-md-6.mb-3.mb-md-0
                   label(for='first_name') First Name
-                  input#fname.form-control(name='first_name' type='text')
+                  input#fname.form-control(name='first_name' type='text' required)
                 .col-md-6
                   label(for='last_name') Last Name
                   input#lname.form-control(name='last_name' type='text')
               .row.form-group
                 .col-md-12
                   label(for='email') Email
-                  input#email.form-control(name='email' type='email')
+                  input#email.form-control(name='email' type='email' required)
               .row.form-group
                 .col-md-12
                   label(for='subject') Subject
-                  input#subject.form-control(name='subject')
+                  input#subject.form-control(name='subject' required)
               .row.form-group
                 .col-md-12
                   label(for='message') Message
-                  textarea#message.form-control(name='message' cols='30' rows='7')
+                  textarea#message.form-control(
+                    name='message'
+                    cols='30'
+                    rows='7'
+                    required
+                  )
               .row.form-group
                 .col-md-12
-                  input.btn.btn-primary.py-2.px-4.text-white.btn-dark(type='submit' value='Send Message')
+                  input#submit.btn.btn-primary.py-2.px-4.text-white.btn-dark(type='submit' value='Send Message')
           .col-md-7.ml-auto(data-aos='fade-up' data-aos-delay='100')
             .p-4.mb-3
               p.mb-0.font-weight-bold.text-secondary.text-uppercase.mb-3 Address
