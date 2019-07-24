@@ -22,6 +22,7 @@ body {
   margin-top: 80px;
   margin-left: 40px;
 }
+
 ::-moz-selection {
   background: #000;
   color: #fff;
@@ -293,11 +294,12 @@ h5,
 
 .site-footer {
   padding: 4em 0;
+  padding-top: 0;
   background: var(--bg-color);
 }
 @media (min-width: 768px) {
   .site-footer {
-    padding: 8em 0;
+    padding: 4em 0;
   }
 }
 

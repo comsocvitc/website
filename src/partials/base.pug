@@ -15,8 +15,9 @@ html
         div
         div
         div
-    include navbar.pug
-    block content
-    include footer.pug
+    .site-wrap
+      include navbar.pug
+      block content
+      include footer.pug
     include scripts.pug
     include analytics.pug
